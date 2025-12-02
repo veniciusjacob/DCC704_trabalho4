@@ -1,4 +1,3 @@
-// auth/authMiddleware.js
 import User from "../models/User.js";
 
 export const ensureUser = async (req, res, next) => {
