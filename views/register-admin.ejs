@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Registrar admin</title>
+</head>
+<body>
+  <h1>Registrar administrador</h1>
+
+  <form method="POST" action="/register-admin">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+    <div>
+      <label>Nome</label>
+      <input name="name" required>
+    </div>
+
+    <div>
+      <label>E-mail</label>
+      <input type="email" name="email" required>
+    </div>
+
+    <div>
+      <label>Senha</label>
+      <input type="password" name="password" required>
+    </div>
+
+    <div>
+      <label>Código de administrador</label>
+      <input type="password" name="adminCode" required>
+    </div>
+
+    <button type="submit">Cadastrar admin</button>
+  </form>
+
+  <p><a href="/">Voltar</a></p>
+</body>
+</html>

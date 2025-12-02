@@ -1,0 +1,23 @@
+<form method="POST" action="/admin/users/<%= user._id %>/update">
+  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+  <div>
+    <label>Nome</label>
+    <input name="name" value="<%= user.name %>" required>
+  </div>
+
+  <div>
+    <label>Email</label>
+    <input name="email" value="<%= user.email %>" required>
+  </div>
+
+  <div>
+    <label>Tipo</label>
+    <select name="role">
+      <option value="user" <%= user.role === "user" ? "selected" : "" %>>Usuário</option>
+      <option value="admin" <%= user.role === "admin" ? "selected" : "" %>>Administrador</option>
+    </select>
+  </div>
+
+  <button type="submit">Salvar</button>
+</form>

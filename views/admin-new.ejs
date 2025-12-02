@@ -1,0 +1,28 @@
+<form method="POST" action="/admin/users">
+  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+  <div>
+    <label>Nome</label>
+    <input name="name" required>
+  </div>
+
+  <div>
+    <label>Email</label>
+    <input name="email" required>
+  </div>
+
+  <div>
+    <label>Senha</label>
+    <input type="password" name="password" required>
+  </div>
+
+  <div>
+    <label>Tipo</label>
+    <select name="role">
+      <option value="user">Usuário</option>
+      <option value="admin">Administrador</option>
+    </select>
+  </div>
+
+  <button type="submit">Criar</button>
+</form>

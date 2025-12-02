@@ -1,0 +1,30 @@
+<table border="1" cellpadding="5">
+  <tr>
+    <th>Nome</th>
+    <th>Email</th>
+    <th>Tipo</th>
+    <th>Ações</th>
+  </tr>
+
+  <% users.forEach(u => { %>
+  <tr>
+    <td><%= u.name %></td>
+    <td><%= u.email %></td>
+    <td><%= u.role %></td>
+    <td>
+      <a href="/admin/users/<%= u._id %>/edit">Editar</a>
+      |
+      <form
+        action="/admin/users/<%= u._id %>/delete"
+        method="POST"
+        style="display: inline"
+      >
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+        <button type="submit">Excluir</button>
+      </form>
+    </td>
+  </tr>
+  <% }) %>
+</table>
+
+<p><a href="/admin/users/new">Criar novo usuário</a></p>
