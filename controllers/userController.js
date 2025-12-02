@@ -1,13 +1,13 @@
-// controllers/userController.js
+
 import bcrypt from "bcryptjs";
 import User from "../models/User.js";
 
-// ---- HOME (página inicial) ----
+// HOME 
 export const showHome = (req, res) => {
   res.render("home");
 };
 
-// ---- REGISTRO USUÁRIO COMUM ----
+//REGISTRO USUÁRIO COMUM
 export const showRegisterUser = (req, res) => {
   res.render("register-user");
 };
@@ -41,7 +41,7 @@ export const registerUser = async (req, res) => {
   }
 };
 
-// ---- REGISTRO ADMIN ----
+// REGISTRO ADMIN
 export const showRegisterAdmin = (req, res) => {
   res.render("register-admin");
 };
@@ -78,7 +78,7 @@ export const registerAdmin = async (req, res) => {
   }
 };
 
-// ---- LOGIN USUÁRIO ----
+// LOGIN USUÁRIO
 export const showLoginUser = (req, res) => {
   res.render("login-user");
 };
@@ -102,7 +102,7 @@ export const loginUser = async (req, res) => {
 };
 
 
-// ---- LOGIN ADMIN ----
+//  LOGIN ADMIN 
 export const showLoginAdmin = (req, res) => {
   res.render("login-admin");
 };
@@ -127,14 +127,14 @@ export const loginAdmin = async (req, res) => {
 };
 
 
-// ---- LOGOUT ----
+// LOGOUT
 export const logout = (req, res) => {
   req.session.destroy(() => {
     res.redirect("/");
   });
 };
 
-// ---- PÁGINA "VER CADASTRO" DO USUÁRIO ----
+// PÁGINA "VER CADASTRO" DO USUÁRIO
 export const showMe = async (req, res) => {
   const user = await User.findById(req.session.userId);
   if (!user) return res.redirect("/");
@@ -142,13 +142,13 @@ export const showMe = async (req, res) => {
   res.render("me", { user });
 };
 
-// ---- PÁGINA ADMIN: VER TODOS USUÁRIOS ----
+//  PÁGINA ADMIN: VER TODOS USUÁRIOS 
 export const showAdminUsers = async (req, res) => {
   const users = await User.find();
   res.render("admin", { users });
 };
 
-// --- ADMIN: CRIAR USUÁRIO ---
+// ADMIN: CRIAR USUÁRIO 
 export const adminCreateForm = (req, res) => {
   res.render("admin-new");
 };
@@ -169,7 +169,7 @@ export const adminCreate = async (req, res) => {
   res.redirect("/admin");
 };
 
-// --- ADMIN: EDITAR USUÁRIO ---
+// ADMIN: EDITAR USUÁRIO 
 export const adminEditForm = async (req, res) => {
   const user = await User.findById(req.params.id);
   res.render("admin-edit", { user });
