@@ -58,7 +58,7 @@ router.get("/me", ensureUser, showMe);
 // Admin: ver todos usuários
 router.get("/admin", ensureAdmin, showAdminUsers);
 
-// --- ADMIN CRUD ---
+// ADMIN CRUD
 
 // Criar novo usuário
 router.get("/admin/users/new", ensureAdmin, adminCreateForm);
